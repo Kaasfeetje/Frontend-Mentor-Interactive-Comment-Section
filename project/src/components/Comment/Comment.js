@@ -41,7 +41,12 @@ const Comment = ({ comment, onReply, currentUser, reloadComments }) => {
 
     return (
         <div className={`comment`}>
-            <Rating className="desktop-rating" score={comment.score} />
+            <Rating
+                className="desktop-rating"
+                score={comment.score}
+                id={comment.id}
+                reloadComments={reloadComments}
+            />
             <div className="full-width">
                 <div className="comment-head">
                     <Avatar
@@ -59,6 +64,8 @@ const Comment = ({ comment, onReply, currentUser, reloadComments }) => {
                             isEditing={isEditing}
                             setIsEditing={setIsEditing}
                             onUpdate={onUpdate}
+                            reloadComments={reloadComments}
+                            id={comment.id}
                         />
                     ) : (
                         <div className="desktop reply" onClick={onReply}>
@@ -84,12 +91,18 @@ const Comment = ({ comment, onReply, currentUser, reloadComments }) => {
                     </p>
                 )}
                 <div className="comment-actions">
-                    <Rating score={comment.score} />
+                    <Rating
+                        score={comment.score}
+                        id={comment.id}
+                        reloadComments={reloadComments}
+                    />
                     {comment.user.username === currentUser.username ? (
                         <AuthorActions
                             isEditing={isEditing}
                             setIsEditing={setIsEditing}
                             onUpdate={onUpdate}
+                            reloadComments={reloadComments}
+                            id={comment.id}
                         />
                     ) : (
                         <div className="reply" onClick={onReply}>
