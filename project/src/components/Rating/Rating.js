@@ -2,9 +2,9 @@ import React from "react";
 import MinusIcon from "../Icons/MinusIcon";
 import PlusIcon from "../Icons/PlusIcon";
 
-const Rating = ({ score }) => {
+const Rating = ({ score, className }) => {
     return (
-        <div className="rating">
+        <div className={`${className} rating`}>
             <PlusIcon />
             <span>{score}</span>
             <MinusIcon />

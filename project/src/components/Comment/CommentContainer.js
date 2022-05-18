@@ -6,11 +6,18 @@ import "./Comment.css";
 const CommentContainer = ({ comment, currentUser }) => {
     const [replyId, setReplyId] = useState(null);
 
+    const onChangeReply = (id) => {
+        if (id === replyId) {
+            return setReplyId(null);
+        }
+        setReplyId(id);
+    };
+
     return (
         <div className="commentContainer">
             <Comment
                 comment={comment}
-                onReply={() => setReplyId(comment.id)}
+                onReply={() => onChangeReply(comment.id)}
                 currentUser={currentUser}
             />
             {replyId === comment.id && (
@@ -22,11 +29,11 @@ const CommentContainer = ({ comment, currentUser }) => {
                         <Comment
                             key={reply.id}
                             comment={reply}
-                            onReply={() => setReplyId(reply.id)}
+                            onReply={() => onChangeReply(reply.id)}
                             currentUser={currentUser}
                         />
                         {replyId === reply.id && (
-                            <CommentForm currentUser={currentUser} />
+                            <CommentForm currentUser={currentUser} isReply />
                         )}
                     </React.Fragment>
                 ))}

@@ -1,9 +1,10 @@
 .commentForm {
     background-color: var(--white);
     color: var(--moderateBlue);
-    margin: 1rem 0;
+    margin: 1rem auto;
     padding: 1rem;
     border-radius: 0.5rem;
+    max-width: 800px;
 }
 
 .commentForm textarea {
