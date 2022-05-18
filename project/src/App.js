@@ -67,6 +67,25 @@ const App = () => {
                 ))}
             </div>
             <CommentForm currentUser={currentUser} onSubmit={onPostComment} />
+            <div class="attribution">
+                Challenge by{" "}
+                <a
+                    href="https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9/hub/interactive-comments-section-ptzAeai0Cd"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    Frontend Mentor
+                </a>
+                .<br /> Coded by{" "}
+                <a
+                    href="https://github.com/Kaasfeetje"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    Kaasfeetje
+                </a>
+                .
+            </div>
         </main>
     );
 };
