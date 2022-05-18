@@ -22,6 +22,7 @@
     font-weight: 700;
     margin-left: 1rem;
     margin-right: 0.5rem;
+    color: var(--darkBlue);
 }
 
 .comment-head span {
@@ -144,6 +145,11 @@
 
 .desktop.reply {
     display: none;
+}
+
+.comment .replyingTo {
+    color: var(--moderateBlue);
+    font-weight: 700;
 }
 
 @media (min-width: 800px) {

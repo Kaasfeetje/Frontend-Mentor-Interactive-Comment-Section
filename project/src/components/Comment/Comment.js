@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Avatar from "../Avatar/Avatar";
-import DeleteIcon from "../Icons/DeleteIcon";
-import EditIcon from "../Icons/EditIcon";
 import ReplyIcon from "../Icons/ReplyIcon";
 import Rating from "../Rating/Rating";
 import AuthorActions from "./AuthorActions";
 
-const Comment = ({ comment, onReply, currentUser }) => {
+const Comment = ({ comment, onReply, currentUser, reloadComments }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [content, setContent] = useState("");
 
@@ -15,8 +13,30 @@ const Comment = ({ comment, onReply, currentUser }) => {
     }, [comment]);
 
     const onUpdate = () => {
-        console.log("Updated");
         setIsEditing(false);
+        const comments = JSON.parse(localStorage.getItem("comments"));
+
+        const updatedComments = comments.map((_comment) => {
+            if (_comment.id === comment.id) {
+                return {
+                    ..._comment,
+                    content,
+                };
+            }
+            _comment.replies = _comment.replies.map((reply) => {
+                if (reply.id === comment.id) {
+                    console.log("AAAAAA");
+                    return {
+                        ...reply,
+                        content,
+                    };
+                }
+                return reply;
+            });
+            return _comment;
+        });
+        localStorage.setItem("comments", JSON.stringify(updatedComments));
+        reloadComments(updatedComments);
     };
 
     return (
@@ -54,7 +74,14 @@ const Comment = ({ comment, onReply, currentUser }) => {
                         onChange={(e) => setContent(e.target.value)}
                     />
                 ) : (
-                    <p>{comment.content}</p>
+                    <p>
+                        {comment.replyingTo && (
+                            <span className="replyingTo">
+                                @{comment.replyingTo}{" "}
+                            </span>
+                        )}
+                        {comment.content}
+                    </p>
                 )}
                 <div className="comment-actions">
                     <Rating score={comment.score} />

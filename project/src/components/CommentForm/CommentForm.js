@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "../Avatar/Avatar";
 import "./CommentForm.css";
 
-const CommentForm = ({ currentUser, isReply }) => {
+const CommentForm = ({ currentUser, isReply, onSubmit }) => {
+    const [content, setContent] = useState("");
+
     return (
-        <form className="commentForm">
+        <form
+            className="commentForm"
+            onSubmit={(e) => {
+                setContent("");
+                onSubmit(e, content, isReply);
+            }}
+        >
             <textarea
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
                 rows={3}
                 placeholder={`Add a ${isReply ? "reply" : "comment"}`}
             />
