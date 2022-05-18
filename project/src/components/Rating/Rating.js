@@ -4,7 +4,7 @@ import PlusIcon from "../Icons/PlusIcon";
 
 const Rating = ({ score }) => {
     return (
-        <div>
+        <div className="rating">
             <PlusIcon />
             <span>{score}</span>
             <MinusIcon />

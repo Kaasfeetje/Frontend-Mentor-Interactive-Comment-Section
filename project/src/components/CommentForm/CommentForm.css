@@ -1,0 +1,47 @@
+.commentForm {
+    background-color: var(--white);
+    color: var(--moderateBlue);
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.commentForm textarea {
+    width: calc(100% - 2rem);
+    font-size: 1rem;
+    border: 1px solid var(--veryLightGray);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-family: "Rubik", sans-serif;
+    font-size: 16px;
+    color: var(--moderateBlue);
+}
+
+.commentForm textarea:focus-visible {
+    outline: 2px solid var(--moderateBlue);
+}
+
+.commentForm > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.commentForm button[type="submit"] {
+    background-color: var(--moderateBlue);
+    color: var(--white);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: "Rubik", sans-serif;
+
+    text-transform: uppercase;
+}
+
+.commentForm button[type="submit"]:hover {
+    opacity: 0.25;
+    cursor: pointer;
+}

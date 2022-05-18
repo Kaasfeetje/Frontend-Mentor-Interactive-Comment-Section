@@ -8,7 +8,11 @@ const App = () => {
         <main>
             <div>
                 {initialData.comments.map((comment) => (
-                    <CommentContainer key={comment.id} comment={comment} />
+                    <CommentContainer
+                        key={comment.id}
+                        comment={comment}
+                        currentUser={initialData.currentUser}
+                    />
                 ))}
             </div>
             <CommentForm currentUser={initialData.currentUser} />

@@ -1,0 +1,99 @@
+.replyContainer {
+    border-left: 2px solid var(--lightGray);
+    padding-left: 1rem;
+}
+
+.comment {
+    background-color: var(--white);
+    color: var(--moderateBlue);
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.comment-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.comment-head h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+}
+
+.comment-head span {
+    margin-left: 0.5rem;
+}
+
+.comment-head .you {
+    margin-right: 0.5rem;
+    background-color: var(--moderateBlue);
+    color: var(--white);
+    font-size: 0.75rem;
+    padding: 0.15rem 0.3rem;
+    border-radius: 0.15rem;
+}
+
+.comment-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.author-actions {
+    display: flex;
+}
+
+.author-actions .delete {
+    color: var(--softRed);
+    font-weight: 500;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+}
+
+.author-actions .edit {
+    color: var(--moderateBlue);
+    font-weight: 500;
+    margin-left: 0.5rem;
+}
+
+.comment .rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--veryLightGray);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.rating svg {
+    padding: 0.5rem;
+}
+
+.rating svg:hover path {
+    fill: var(--moderateBlue);
+}
+
+.rating span {
+    margin: 0 1rem;
+    font-weight: 500;
+}
+
+.comment-actions .reply {
+    font-weight: 500;
+}
+
+.comment-actions .reply svg {
+    margin-right: 0.5rem;
+}
+
+.comment-actions .reply:hover,
+.author-actions .delete:hover,
+.author-actions .edit:hover {
+    opacity: 0.25;
+    cursor: pointer;
+}
